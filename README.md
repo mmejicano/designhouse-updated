@@ -43,7 +43,21 @@
 7. settings profile/password
     - artisan make:controller **User/SettingsController**
 
+8. desing table = UPLOAD IMAGE
+    - art make:model Design -m
+    - edit api.php
+    - edit $fillable && migration_design
+    - create config/site.php
+    - art make:migration add_fields_to_designs --table=designs
+    - art migrate
 
+9. REPOSITORY PATTERN
+    - create folder Repositories/Contracts
+    - create folder Repositories/Eloquent
+    - create files Repositories/Contracts/IUser
+    - create folder Repositories/Contracts/UserRepository
+    - art make:provider RepositoryServiceProvider
+    
 ### LINKs
 
 [spatial](https://github.com/grimzy/laravel-mysql-spatial)

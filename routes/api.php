@@ -6,6 +6,7 @@ use App\Http\Controllers\User\MeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\SettingsController;
+use App\Http\Controllers\Designs\UploadController;
 use App\Http\Controllers\Auth\VerificationController;
 
 
@@ -17,7 +18,6 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     Route::put('settings/profile', [SettingsController::class, 'updateProfile']);
     Route::put('settings/password', [SettingsController::class, 'updatePassword']);
-
 });
 
 // RUTAS guest
@@ -27,7 +27,8 @@ Route::group(['middleware' => ['guest:api']], function () {
     Route::post('verification/resend', [VerificationController::class, 'resend']);
     Route::post('login', [LoginController::class, 'login']);
 
-
+    // upload designs
+    Route::post('designs', [UploadController::class, 'upload']);
 });
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
@@ -36,5 +37,3 @@ Route::group(['middleware' => ['guest:api']], function () {
 // Route::get('/', function(){
 //     return response()->json(["message"=>"hola mundo"], 201);
 // });
-
-
